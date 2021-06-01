@@ -18,7 +18,6 @@ namespace WebApplication1.Configurations
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
 
-
             serviceCollection.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             serviceCollection.AddControllersWithViews();
