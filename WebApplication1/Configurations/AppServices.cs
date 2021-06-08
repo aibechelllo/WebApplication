@@ -2,10 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using WebApplication.Data.Models;
 using WebApplication1.Data;
 
 namespace WebApplication1.Configurations
@@ -18,9 +15,9 @@ namespace WebApplication1.Configurations
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
 
-            serviceCollection.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            serviceCollection.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            serviceCollection.AddControllersWithViews();
+            serviceCollection.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
     }
 }
