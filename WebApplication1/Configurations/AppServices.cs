@@ -15,7 +15,7 @@ namespace WebApplication1.Configurations
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection")));
 
-            serviceCollection.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            serviceCollection.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             serviceCollection.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
